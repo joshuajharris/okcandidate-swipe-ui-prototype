@@ -8,7 +8,25 @@ class Survey extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+          cards: [
+            {
+              id: 0,
+              title: 'Card 1',
+              text: 'This is the first card.'
+            },
+            {
+              id: 1,
+              title: 'Card 2',
+              text: 'This is the second card.'
+            },
+            {
+              id: 2,
+              title: 'Card 3',
+              text: 'This is the third card.'
+            }
+          ]
+        }
     }
 
     componentDidMount() {
@@ -30,17 +48,12 @@ class Survey extends Component {
     }
 
     render() {
+        const cards = this.state.cards;
+
         return (
-            <Deck>
-                <Card>
-                    <h1>Top Card</h1>
-                </Card>
-                <Card>
-                    <h1>Second Card</h1>
-                </Card>
-                <Card>
-                    <h1>Third Card</h1>
-                </Card>
+            <Deck cards={cards}
+              accept={this.accept}
+              reject={this.reject}>
             </Deck>
         );
     }
